@@ -2,8 +2,12 @@ package com.kimschool.manage.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity // JPA 전용 필수 어노테이션
+@NamedQuery // 원하는 제목으로 쿼리 만들어서 테이블에서 정보 취득, Implement에서 부르기
+		(name = "User_Info.findBypassword",
+		query = "select u from User_Info u where u.password = :password and u.id = :id") // * 안되고 테이블 별칭
 public class User_Info {
 
 	private String id;
